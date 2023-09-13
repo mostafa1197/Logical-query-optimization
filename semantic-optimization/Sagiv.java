@@ -8,18 +8,18 @@ import java.util.List;
 public class Sagiv {
 
 	/**
-	 * Minimiert das Tableau unter Einhaltung der Intgritätsbedingungen mit den
-	 * folgenden Schritten: 1. Prüfe, ob das Tableau aus einer Relation besteht,
+	 * Minimiert das Tableau unter Einhaltung der IntgritÃ¤tsbedingungen mit den
+	 * folgenden Schritten: 1. PrÃ¼fe, ob das Tableau aus einer Relation besteht,
 	 * falls true mach bei Schritt 2 weiter sonst rufe sagivIND auf 2. Starte bei
 	 * Zeile 1 und vergleiche es mit jeder Zeile 3. Falls 1 die Andere Zeile
-	 * subsumieren kann, rechne die Fellows dieser Zeile und prüfe, ob die
-	 * subsumiert werden können 4. Falls ja, löche diese Zeile und dessen Fellows 5.
-	 * Wiederhole bei 1, bis sich das Tableau nicht mehr ändert
+	 * subsumieren kann, rechne die Fellows dieser Zeile und prÃ¼fe, ob die
+	 * subsumiert werden kÃ¶nnen 4. Falls ja, lÃ¶che diese Zeile und dessen Fellows 5.
+	 * Wiederhole bei 1, bis sich das Tableau nicht mehr Ã¤ndert
 	 * 
 	 * @param table Ein Tableau
-	 * @param inds  Liste der Inklusion-Abhängigkeiten
+	 * @param inds  Liste der Inklusion-AbhÃ¤ngigkeiten
 	 * @return Eine minimierte optimierte Tableau unter Einhaltung der
-	 *         Intgritätsbedingungen
+	 *         IntgritÃ¤tsbedingungen
 	 */
 	public static Tableau sagiv(Tableau table, List<IND> inds) {
 		Tableau resultTable = table.copyTableau();
@@ -58,18 +58,18 @@ public class Sagiv {
 	}
 
 	/**
-	 * Minimiert das Tableau unter Einhaltung der Intgritätsbedingungen mit den
+	 * Minimiert das Tableau unter Einhaltung der IntgritÃ¤tsbedingungen mit den
 	 * folgenden Schritten: 1. Rufe die Methode getRows auf, um alle Zeilen, die von
-	 * der Inklusion-Abhängigkeiten betroffen sind zu bekommen. 2. Prüfe, ob Zeilen
+	 * der Inklusion-AbhÃ¤ngigkeiten betroffen sind zu bekommen. 2. PrÃ¼fe, ob Zeilen
 	 * der Oberen-Klassen, Zeilen aus dem unter ihr liegende Klasse subsumieren kann
-	 * unter Beachtung der Fellows 3. Falls ja, löche diese Zeile mit seine Fellows,
-	 * dann rufe die Methode sagiv auf 4. Falls nicht liefere das Tableau zurück
+	 * unter Beachtung der Fellows 3. Falls ja, lÃ¶che diese Zeile mit seine Fellows,
+	 * dann rufe die Methode sagiv auf 4. Falls nicht liefere das Tableau zurÃ¼ck
 	 * 
 	 * 
 	 * @param table Ein Tableau
-	 * @param inds  Liste der Inklusion-Abhängigkeiten
+	 * @param inds  Liste der Inklusion-AbhÃ¤ngigkeiten
 	 * @return Eine minimierte optimierte Tableau unter Einhaltung der
-	 *         Intgritätsbedingungen
+	 *         IntgritÃ¤tsbedingungen
 	 */
 	private static Tableau sagivIND(Tableau table, List<IND> inds) {
 		Tableau resultTable = table.copyTableau();
@@ -104,16 +104,16 @@ public class Sagiv {
 	}
 
 	/**
-	 * Führt die folgenden Schritten auf: 1. Suche die Zeilenummern, die zu der
-	 * Relation der ersten Stelle der IND gehören 2. Markiere diese Zeilenummern in
-	 * der ersten Stelle der resultierenden Liste 3. Wiederhole Schritt 1 und 2 für
+	 * FÃ¼hrt die folgenden Schritten auf: 1. Suche die Zeilenummern, die zu der
+	 * Relation der ersten Stelle der IND gehÃ¶ren 2. Markiere diese Zeilenummern in
+	 * der ersten Stelle der resultierenden Liste 3. Wiederhole Schritt 1 und 2 fÃ¼r
 	 * jede Stelle der IND
 	 * 
-	 * Die Stellen am Anfang der Liste heißen Obereklassen
+	 * Die Stellen am Anfang der Liste heiÃŸen Obereklassen
 	 * 
 	 * 
 	 * @param table Ein Tableau
-	 * @param ind   Eine Inklusion-Abhängigkeit
+	 * @param ind   Eine Inklusion-AbhÃ¤ngigkeit
 	 * @return Liefert eine Liste der von der IND betroffene Zeilen unterteilt in
 	 *         Oberklassen
 	 */
@@ -236,119 +236,6 @@ public class Sagiv {
 		}
 
 		return fellows;
-	}
-
-	public static void main(String[] args) {
-
-		List<String> attributes = List.of("A", "B", "C", "D");
-//		Tableau table = new Tableau(attributes);
-//		table.getTableau().get(0).add(new Variable("a1", true));
-//		table.getTableau().get(1).add(new Variable("b1", false));
-//		table.getTableau().get(2).add(new Variable("b2", false));
-//		table.getTableau().get(3).add(new Variable("a4", true));
-//
-//		table.getTableau().get(0).add(new Variable("a1", true));
-//		table.getTableau().get(1).add(new Variable("a2", true));
-//		table.getTableau().get(2).add(new Variable("b3", false));
-//		table.getTableau().get(3).add(new Variable("b4", false));
-//
-//		table.getTableau().get(0).add(new Variable("b5", false));
-//		table.getTableau().get(1).add(new Variable("a2", true));
-//		table.getTableau().get(2).add(new Variable("b3", false));
-//		table.getTableau().get(3).add(new Variable("a4", true));
-//		table.getTags().add("R1");
-//		table.getTags().add("R1");
-//		table.getTags().add("R1");
-//		table.getTags().add("R1");
-//		table.getTags().add("R1");
-
-		List<Relation> relations = new ArrayList<Relation>();
-		Relation r1 = new Relation();
-		List<String> attributes1 = new ArrayList<String>();
-		List<String> universe = new ArrayList<String>();
-		universe.add("A");
-		universe.add("B");
-		universe.add("C");
-		universe.add("D");
-		universe.add("E");
-		universe.add("F");
-		attributes1.add("A");
-		attributes1.add("B");
-		r1.setAttributes(attributes1);
-		r1.setName("R1");
-		Relation r2 = new Relation();
-		List<String> attributes2 = new ArrayList<String>();
-		attributes2.add("A");
-		attributes2.add("C");
-		r2.setAttributes(attributes2);
-		r2.setName("R2");
-		Relation r3 = new Relation();
-		List<String> attributes3 = new ArrayList<String>();
-		attributes3.add("A");
-		attributes3.add("D");
-		r3.setAttributes(attributes3);
-		r3.setName("R3");
-		Relation r4 = new Relation();
-		List<String> attributes4 = new ArrayList<String>();
-		attributes4.add("D");
-		attributes4.add("E");
-		r4.setAttributes(attributes4);
-		r4.setName("R4");
-		Relation r5 = new Relation();
-		List<String> attributes5 = new ArrayList<String>();
-		attributes5.add("D");
-		attributes5.add("F");
-		r5.setAttributes(attributes5);
-		r5.setName("R5");
-
-		relations.add(r1);
-		relations.add(r2);
-		relations.add(r3);
-		relations.add(r4);
-		relations.add(r5);
-
-		r1.setUniverse(universe);
-		r2.setUniverse(universe);
-		r3.setUniverse(universe);
-		r4.setUniverse(universe);
-		r5.setUniverse(universe);
-
-		Tableau table = new Tableau(attributes, relations);
-		table.getTableau().get(0).add(new Variable("a1", true));
-		table.getTableau().get(1).add(new Variable("a2", true));
-		table.getTableau().get(2).add(new Variable("a3", true));
-		table.getTableau().get(3).add(new Variable("blank", false));
-
-		table.getTableau().get(0).add(new Variable("a1", true));
-		table.getTableau().get(1).add(new Variable("b1", false));
-		table.getTableau().get(2).add(new Variable("a3", true));
-		table.getTableau().get(3).add(new Variable("b3", false));
-
-		table.getTableau().get(0).add(new Variable("b4", false));
-		table.getTableau().get(1).add(new Variable("b1", false));
-		table.getTableau().get(2).add(new Variable("b5", false));
-		table.getTableau().get(3).add(new Variable("b6", false));
-
-		table.getTableau().get(0).add(new Variable("a1", true));
-		table.getTableau().get(1).add(new Variable("b7", false));
-		table.getTableau().get(2).add(new Variable("a3", true));
-		table.getTableau().get(3).add(new Variable("b6", false));
-
-		table.getTableau().get(0).add(new Variable("b8", false));
-		table.getTableau().get(1).add(new Variable("a2", true));
-		table.getTableau().get(2).add(new Variable("a3", true));
-		table.getTableau().get(3).add(new Variable("b9", false));
-
-		table.getTags().add("R1");
-		table.getTags().add("R1");
-		table.getTags().add("R1");
-		table.getTags().add("R1");
-		table.getTags().add("R1");
-
-		Tableau r = table;
-		List<String> x = sortList(getFellows(table, 1, 2, null));
-		r.printTableau();
-
 	}
 
 }
